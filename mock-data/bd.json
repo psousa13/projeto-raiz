@@ -1,0 +1,15 @@
+{
+  "cursos": [
+    { "id": 1, "nomeDoCurso": "Engenharia Informática" },
+    { "id": 2, "nomeDoCurso": "Engenharia Civil" },
+    { "id": 3, "nomeDoCurso": "Contabilidade e Finanças" },
+    { "id": 4, "nomeDoCurso": "Design Gráfico" }
+  ],
+  "alunos": [
+    { "id": 1, "nome": "Ana", "apelido": "Silva", "idCurso": 1, "anoCurricular": 2 },
+    { "id": 2, "nome": "Bruno", "apelido": "Costa", "idCurso": 1, "anoCurricular": 3 },
+    { "id": 3, "nome": "Carla", "apelido": "Ferreira", "idCurso": 2, "anoCurricular": 1 },
+    { "id": 4, "nome": "Diogo", "apelido": "Martins", "idCurso": 3, "anoCurricular": 2 },
+    { "id": 5, "nome": "Eva", "apelido": "Rocha", "idCurso": 4, "anoCurricular": 3 }
+  ]
+}

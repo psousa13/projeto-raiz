@@ -1,0 +1,91 @@
+{
+  "info": {
+    "name": "Atividade Pratica 1 - Alunos e Cursos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "alunoId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "GET cursos",
+      "request": { "method": "GET", "url": "{{baseUrl}}/cursos" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('200 OK', () => pm.response.to.have.status(200));",
+        "pm.test('devolve array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+      ] } }]
+    },
+    {
+      "name": "GET alunos",
+      "request": { "method": "GET", "url": "{{baseUrl}}/alunos" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('200 OK', () => pm.response.to.have.status(200));",
+        "pm.test('devolve array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+      ] } }]
+    },
+    {
+      "name": "POST aluno",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/alunos",
+        "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Teste\",\n  \"apelido\": \"Postman\",\n  \"idCurso\": 1,\n  \"anoCurricular\": 1\n}" }
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('201 Created', () => pm.response.to.have.status(201));",
+        "const a = pm.response.json();",
+        "pm.test('tem id', () => pm.expect(a.id).to.exist);",
+        "pm.collectionVariables.set('alunoId', a.id);"
+      ] } }]
+    },
+    {
+      "name": "GET aluno por id",
+      "request": { "method": "GET", "url": "{{baseUrl}}/alunos/{{alunoId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('200 OK', () => pm.response.to.have.status(200));",
+        "pm.test('nome correto', () => pm.expect(pm.response.json().nome).to.eql('Teste'));"
+      ] } }]
+    },
+    {
+      "name": "PUT aluno",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/alunos/{{alunoId}}",
+        "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Teste Editado\",\n  \"apelido\": \"Postman\",\n  \"idCurso\": 1,\n  \"anoCurricular\": 2\n}" }
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('200 OK', () => pm.response.to.have.status(200));",
+        "pm.test('nome atualizado', () => pm.expect(pm.response.json().nome).to.eql('Teste Editado'));"
+      ] } }]
+    },
+    {
+      "name": "PATCH aluno",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/alunos/{{alunoId}}",
+        "body": { "mode": "raw", "raw": "{\n  \"anoCurricular\": 3\n}" }
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('200 OK', () => pm.response.to.have.status(200));",
+        "pm.test('ano atualizado', () => pm.expect(pm.response.json().anoCurricular).to.eql(3));"
+      ] } }]
+    },
+    {
+      "name": "DELETE aluno",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/alunos/{{alunoId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('apagado (200 json-server / 204 express)', () => pm.expect([200, 204]).to.include(pm.response.code));"
+      ] } }]
+    },
+    {
+      "name": "GET aluno apagado (404)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/alunos/{{alunoId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('404 Not Found', () => pm.response.to.have.status(404));"
+      ] } }]
+    }
+  ]
+}

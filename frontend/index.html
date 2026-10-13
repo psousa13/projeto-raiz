@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestão de Alunos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Gestão de Alunos</h1>
+
+    <form id="aluno-form">
+      <input type="hidden" id="aluno-id" />
+      <input id="nome" placeholder="Nome" required />
+      <input id="apelido" placeholder="Apelido" required />
+      <select id="curso" required></select>
+      <input id="ano" type="number" min="1" max="6" placeholder="Ano" required />
+      <button type="submit" id="submit-btn">Adicionar</button>
+      <button type="button" id="cancel-btn" hidden>Cancelar</button>
+    </form>
+    <p id="msg" role="status"></p>
+
+    <table>
+      <thead>
+        <tr><th>Nome</th><th>Apelido</th><th>Curso</th><th>Ano</th><th>Ações</th></tr>
+      </thead>
+      <tbody id="alunos-body"></tbody>
+    </table>
+
+    <details>
+      <summary>Gerir cursos (opcional)</summary>
+      <form id="curso-form">
+        <input id="novo-curso" placeholder="Nome do curso" required />
+        <button type="submit">Adicionar curso</button>
+      </form>
+      <ul id="cursos-list"></ul>
+    </details>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
