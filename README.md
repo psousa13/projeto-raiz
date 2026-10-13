@@ -4,9 +4,9 @@ Aplicação de gestão de alunos e cursos: front-end (HTML/CSS/JS + Fetch API), 
 
 ## Links
 
-- **Front-end (público):** `<URL do front-end>`
-- **API real:** `<URL da API no Render>`
-- **Swagger:** `<URL da API>/api-docs`
+- **Front-end (público):** _por fazer (deploy ainda não realizado)_
+- **API real:** _por fazer (deploy ainda não realizado)_
+- **Swagger:** _por fazer (disponível em `/api-docs` após o deploy; localmente em http://localhost:3001/api-docs)_
 
 ## Estrutura
 
