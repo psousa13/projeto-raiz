@@ -74,7 +74,3 @@ Depois do deploy, preencher os links no topo deste README.
 ## Parte 6: Swagger
 
 Disponível em `/api-docs` (ex.: http://localhost:3001/api-docs). Definição em `backend/docs/swagger.js`.
-
-## Git
-
-Commits regulares; usar branches por parte (ex.: `feat/mock-server`, `feat/backend`).
