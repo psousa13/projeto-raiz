@@ -1,0 +1,19 @@
+# Blueprint opcional do Render (New > Blueprint). Cria a API e o front-end.
+services:
+  - type: web
+    name: alunos-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+  - type: web
+    name: alunos-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: ""
+    staticPublishPath: .

@@ -4,9 +4,9 @@ Aplicação de gestão de alunos e cursos: front-end (HTML/CSS/JS + Fetch API), 
 
 ## Links
 
-- **Front-end (público):** _por fazer (deploy ainda não realizado)_
-- **API real:** _por fazer (deploy ainda não realizado)_
-- **Swagger:** _por fazer (disponível em `/api-docs` após o deploy; localmente em http://localhost:3001/api-docs)_
+- **Front-end (público):** https://projeto-raiz-frontend.vercel.app
+- **API real:** https://projeto-raiz.onrender.com
+- **Swagger:** https://projeto-raiz.onrender.com/api-docs
 
 ## Estrutura
 
@@ -36,7 +36,7 @@ npm start
 
 - API: http://localhost:3000/alunos e http://localhost:3000/cursos
 - Frontend: http://localhost:3000 (o json-server serve `../frontend` como estático)
-- Em `frontend/config.js`, `API_URL` fica `""` (mesma origem).
+- `frontend/config.js` escolhe a API automaticamente: em `localhost:3000` usa a mesma origem (`""`); noutro localhost usa `http://localhost:3001`; em produção usa `PROD_API`.
 
 ### Testes Postman
 
@@ -65,7 +65,9 @@ A mesma coleção funciona contra a API real: mudar `baseUrl` e trocar `"idCurso
 
 **Front-end (Vercel ou Render Static Site)**
 - Root Directory: `frontend` (sem build)
-- Editar `frontend/config.js`: `window.API_URL = "<URL da API no Render>";` e fazer commit.
+- Editar `frontend/config.js`: definir `PROD_API = "<URL da API no Render>"` e fazer commit.
+
+Alternativa: `render.yaml` na raiz (New > Blueprint no Render) cria os dois serviços; basta preencher `MONGODB_URI` e `CORS_ORIGIN`.
 
 Depois do deploy, preencher os links no topo deste README.
 
