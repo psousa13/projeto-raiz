@@ -36,7 +36,7 @@ npm start
 
 - API: http://localhost:3000/alunos e http://localhost:3000/cursos
 - Frontend: http://localhost:3000 (o json-server serve `../frontend` como estático)
-- Em `frontend/config.js`, `API_URL` fica `""` (mesma origem).
+- `frontend/config.js` escolhe a API automaticamente: em `localhost:3000` usa a mesma origem (`""`); noutro localhost usa `http://localhost:3001`; em produção usa `PROD_API`.
 
 ### Testes Postman
 
@@ -65,7 +65,9 @@ A mesma coleção funciona contra a API real: mudar `baseUrl` e trocar `"idCurso
 
 **Front-end (Vercel ou Render Static Site)**
 - Root Directory: `frontend` (sem build)
-- Editar `frontend/config.js`: `window.API_URL = "<URL da API no Render>";` e fazer commit.
+- Editar `frontend/config.js`: definir `PROD_API = "<URL da API no Render>"` e fazer commit.
+
+Alternativa: `render.yaml` na raiz (New > Blueprint no Render) cria os dois serviços; basta preencher `MONGODB_URI` e `CORS_ORIGIN`.
 
 Depois do deploy, preencher os links no topo deste README.
 
