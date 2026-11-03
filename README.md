@@ -4,9 +4,9 @@ Aplicação de gestão de alunos e cursos: front-end (HTML/CSS/JS + Fetch API), 
 
 ## Links
 
-- **Front-end (público):** _por fazer (deploy ainda não realizado)_
-- **API real:** _por fazer (deploy ainda não realizado)_
-- **Swagger:** _por fazer (disponível em `/api-docs` após o deploy; localmente em http://localhost:3001/api-docs)_
+- **Front-end (público):** https://projeto-raiz-frontend.vercel.app
+- **API real:** https://projeto-raiz.onrender.com
+- **Swagger:** https://projeto-raiz.onrender.com/api-docs
 
 ## Estrutura
 
